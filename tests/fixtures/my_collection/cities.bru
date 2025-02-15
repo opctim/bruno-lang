@@ -1,0 +1,35 @@
+meta {
+  name: Cities
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/api/cities/:test?test=test
+  body: none
+  auth: inherit
+}
+
+params:query {
+  test: test
+}
+
+params:path {
+  test:
+}
+
+headers {
+  Accept-Language: de
+}
+
+vars:pre-request {
+  test: 123
+}
+
+vars:post-response {
+  test2: 456
+}
+
+docs {
+  Note: bla bla bla
+}
