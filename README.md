@@ -1,4 +1,5 @@
 # opctim/bruno-lang
+[![Latest Stable Version](https://poser.pugx.org/opctim/bruno-lang/v)](https://packagist.org/packages/opctim/bruno-lang) [![Total Downloads](https://poser.pugx.org/opctim/bruno-lang/downloads)](https://packagist.org/packages/opctim/bruno-lang) [![Latest Unstable Version](https://poser.pugx.org/opctim/bruno-lang/v/unstable)](https://packagist.org/packages/opctim/bruno-lang) [![License](https://poser.pugx.org/opctim/bruno-lang/license)](https://packagist.org/packages/opctim/bruno-lang) [![PHP Version Require](https://poser.pugx.org/opctim/bruno-lang/require/php)](https://packagist.org/packages/opctim/bruno-lang)
 
 This package is a framework-agnostic, bidirectional implementation of the Bruno (.bru) file language from [usebruno.com](https://usebruno.com). 
 It allows you to generate, parse, modify, and rebuild Bruno request collections programmatically or from existing .bru files. 
