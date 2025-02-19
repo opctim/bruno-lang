@@ -97,6 +97,37 @@ $collection = new Collection(
 $collection->write('/path/to/my/collection');
 ```
 
+### Nesting requests in a collection
+
+When creating collections, you might want to create folders. 
+```php
+new Collection(
+    $metadata,
+    [
+        new BruFile('root_request', [
+            // ...
+        ]),
+        'my' => [
+            'nested' => [
+                new BruFile('request', [
+                    // ...
+                ]),
+            ]
+        ]
+    ],
+    $environments
+);
+```
+
+Will result in this directory structure:
+
+    my_collection/
+    ├── bruno.json
+    ├── environments/
+    └── my/
+        └── nested/
+            └── request.bru
+
 ### Parsing and rebuilding existing collections
 
 ```php

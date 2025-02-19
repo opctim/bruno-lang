@@ -24,6 +24,27 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class CollectionTest extends TestCase
 {
+    public function testFlattenRequests(): void
+    {
+        $c = new Collection([
+            'name' => 'test',
+            'version' => '1'
+        ], [
+            'test' => [
+                new BruFile('test', []),
+                'oneLevelDeeper' => [
+                    new BruFile('test', []),
+                ]
+            ],
+            new BruFile('test', []),
+            new BruFile('test', [])
+        ]);
+
+        self::assertCount(3, $c->getRequests());
+        self::assertCount(4, $c->getFlatRequests());
+        self::assertInstanceOf(BruFile::class, $c->getFlatRequests()[1]);
+    }
+
     public function testCollectionReadAndWrite(): void
     {
         $base = __DIR__ . '/../../fixtures';
@@ -107,7 +128,47 @@ class CollectionTest extends TestCase
                     new DictionaryBlockEntry('body', 'none'),
                     new DictionaryBlockEntry('auth', 'none')
                 ])
-            ])
+            ]),
+            'test' => [
+                'test2' => [
+                    new BruFile('nested', [
+                        new MetaTag([
+                            new DictionaryBlockEntry('name', 'nested'),
+                            new DictionaryBlockEntry('type', 'http'),
+                            new DictionaryBlockEntry('seq', '1')
+                        ]),
+                        new GetTag([
+                            new DictionaryBlockEntry('url', '/nested'),
+                            new DictionaryBlockEntry('body', 'none'),
+                            new DictionaryBlockEntry('auth', 'none')
+                        ])
+                    ]),
+                    new BruFile('nested2', [
+                        new MetaTag([
+                            new DictionaryBlockEntry('name', 'nested2'),
+                            new DictionaryBlockEntry('type', 'http'),
+                            new DictionaryBlockEntry('seq', '1')
+                        ]),
+                        new GetTag([
+                            new DictionaryBlockEntry('url', '/nested'),
+                            new DictionaryBlockEntry('body', 'none'),
+                            new DictionaryBlockEntry('auth', 'none')
+                        ])
+                    ]),
+                ],
+                new BruFile('first_nested', [
+                    new MetaTag([
+                        new DictionaryBlockEntry('name', 'first_nested'),
+                        new DictionaryBlockEntry('type', 'http'),
+                        new DictionaryBlockEntry('seq', '1')
+                    ]),
+                    new GetTag([
+                        new DictionaryBlockEntry('url', '/nested'),
+                        new DictionaryBlockEntry('body', 'none'),
+                        new DictionaryBlockEntry('auth', 'none')
+                    ])
+                ]),
+            ]
         ];
 
         $environments = [

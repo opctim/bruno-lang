@@ -19,11 +19,12 @@ use Opctim\BrunoLang\V1\Interface\BuilderInterface;
 use Opctim\BrunoLang\V1\Interface\WriterInterface;
 use Opctim\BrunoLang\V1\Tag\TagFactory;
 use Opctim\BrunoLang\V1\Utils\Utils;
+use Symfony\Component\Filesystem\Filesystem;
 
 class BruFile implements BuilderInterface, WriterInterface
 {
     /**
-     * @param string $name
+     * @param string $name The filename without the .bru extension
      * @param Block[] $blocks
      */
     public function __construct(
@@ -88,7 +89,12 @@ class BruFile implements BuilderInterface, WriterInterface
 
     public function write(string $filePath): static
     {
-        file_put_contents($filePath, $this->build());
+        $filePath = rtrim($filePath, '/');
+
+        $filesystem = new Filesystem();
+
+        $filesystem->mkdir($filePath);
+        $filesystem->dumpFile($filePath . '/' . $this->getName() . '.bru', $this->build());
 
         return $this;
     }
