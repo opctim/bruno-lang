@@ -21,7 +21,7 @@ use Opctim\BrunoLang\V1\Tag\ArrayBlockTag;
 /**
  * @method ArrayBlockEntry[] getBlockEntries()
  * @method ArrayBlock setBlockEntries(ArrayBlockEntry[] $blockEntries)
- * @method ArrayBlock addBlockEntry(ArrayBlockEntry $blockEntry)
+ * @method ArrayBlock addBlockEntry(ArrayBlockEntry ...$blockEntry)
  */
 abstract class ArrayBlock extends Block
 {

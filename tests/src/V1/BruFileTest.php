@@ -23,6 +23,16 @@ use PHPUnit\Framework\TestCase;
 
 class BruFileTest extends TestCase
 {
+    public function testSplatOperator(): void
+    {
+        $bruFile = new BruFile('test', []);
+
+        $bruFile->addBlock(new MetaTag([]));
+        $bruFile->addBlock(new MetaTag([]), new MetaTag([]), new MetaTag([]));
+
+        self::assertCount(4, $bruFile->getBlocks());
+    }
+
     public function testParseAndBuild(): void
     {
         $testFiles = [

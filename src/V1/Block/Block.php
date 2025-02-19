@@ -87,9 +87,9 @@ abstract class Block implements BuilderInterface
         return $this;
     }
 
-    public function addBlockEntry(BlockEntryInterface $blockEntry): static
+    public function addBlockEntry(BlockEntryInterface ...$blockEntries): static
     {
-        $this->blockEntries[] = $blockEntry;
+        $this->blockEntries =  array_merge($this->blockEntries, $blockEntries);
 
         return $this;
     }

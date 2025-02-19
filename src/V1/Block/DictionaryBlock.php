@@ -19,7 +19,7 @@ use Opctim\BrunoLang\V1\Tag\DictionaryBlockTag;
 /**
  * @method DictionaryBlockEntry[] getBlockEntries()
  * @method DictionaryBlock setBlockEntries(DictionaryBlockEntry[] $blockEntries)
- * @method DictionaryBlock addBlockEntry(DictionaryBlockEntry $blockEntry)
+ * @method DictionaryBlock addBlockEntry(DictionaryBlockEntry ...$blockEntry)
  */
 abstract class DictionaryBlock extends Block
 {

@@ -111,9 +111,9 @@ class BruFile implements BuilderInterface, WriterInterface
         return $this;
     }
 
-    public function addBlock(Block & TagInterface $block): static
+    public function addBlock(Block & TagInterface ...$blocks): static
     {
-        $this->blocks[] = $block;
+        $this->blocks =  array_merge($this->blocks, $blocks);
 
         return $this;
     }
