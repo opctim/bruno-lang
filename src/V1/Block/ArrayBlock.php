@@ -19,7 +19,7 @@ use Opctim\BrunoLang\V1\Utils\Utils;
 use Opctim\BrunoLang\V1\Tag\ArrayBlockTag;
 
 /**
- * @method ArrayBlockEntry getBlockEntries()
+ * @method ArrayBlockEntry[] getBlockEntries()
  * @method ArrayBlock setBlockEntries(ArrayBlockEntry[] $blockEntries)
  * @method ArrayBlock addBlockEntry(ArrayBlockEntry $blockEntry)
  */

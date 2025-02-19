@@ -17,7 +17,7 @@ use Opctim\BrunoLang\V1\Block\Entry\DictionaryBlockEntry;
 use Opctim\BrunoLang\V1\Tag\DictionaryBlockTag;
 
 /**
- * @method DictionaryBlockEntry getBlockEntries()
+ * @method DictionaryBlockEntry[] getBlockEntries()
  * @method DictionaryBlock setBlockEntries(DictionaryBlockEntry[] $blockEntries)
  * @method DictionaryBlock addBlockEntry(DictionaryBlockEntry $blockEntry)
  */
